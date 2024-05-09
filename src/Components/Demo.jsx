@@ -19,6 +19,8 @@ const Demo = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
+      const rapidApiKey = import.meta.env.VITE_RAPID_API_ARTICLE_KEY;
+      console.log(rapidApiKey);
       const {data} = await getSummary({articleUrl: article.url});
       if (data?.summary) {
         const newArticle = {...article, summary: data.summary};
